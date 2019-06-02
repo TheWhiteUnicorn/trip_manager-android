@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/triplist_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.design.widget.TabItem android:text="@string/trips_tab_all" />
+
+            <android.support.design.widget.TabItem android:text="@string/trips_tab_planned" />
+
+            <android.support.design.widget.TabItem android:text="@string/trips_tab_current" />
+
+            <android.support.design.widget.TabItem android:text="@string/trips_tab_past" />
+
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/triplist_list"
+            android:name="com.thewhiteunicorn.trip_manager.UI.Fragments.TripListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_tabs"
+            app:layout_constraintVertical_bias="0.0"
+            tools:context=".ui.fragments.tripList.TripListFragment"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:listitem="@layout/fragment_triplist_item">
+
+
+        </android.support.v7.widget.RecyclerView>
+    </android.support.constraint.ConstraintLayout>
+
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        app:sdMainFabClosedSrc="@drawable/plus"
+        android:tint="#FFFFFF"
+        app:layout_anchor="@+id/constraintLayout"
+        app:layout_anchorGravity="end|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.design.widget.CoordinatorLayout>

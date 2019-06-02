@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Trip Manager</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Travels</string>
+    <string name="title_dashboard">Items</string>
+    <string name="title_notifications">Locations</string>
+    <string name="trips_tab_all">All</string>
+    <string name="trips_tab_planned">Planned</string>
+    <string name="trips_tab_current">Current</string>
+    <string name="trips_tab_past">Past</string>
+    <string name="trips_fab_action_trip_text">Trip</string>
+    <string name="trips_fab_action_group_text">Trip group</string>
 </resources>
