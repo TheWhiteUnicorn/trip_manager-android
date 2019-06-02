@@ -9,5 +9,5 @@ public class StuffSet extends RealmObject {
     private boolean isTemplate;
     private String name;
     private Date creationDate;
-    private RealmList<Stuff> stuff;
+    private RealmList<StuffItem> stuffItem;
 }

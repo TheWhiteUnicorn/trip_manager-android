@@ -8,14 +8,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.thewhiteunicorn.trip_manager.R;
+import com.thewhiteunicorn.trip_manager.model.Location;
+import com.thewhiteunicorn.trip_manager.model.StuffItem;
+import com.thewhiteunicorn.trip_manager.ui.fragments.locationsList.LocationsListFragment;
+import com.thewhiteunicorn.trip_manager.ui.fragments.stuffList.StuffListFragment;
 import com.thewhiteunicorn.trip_manager.ui.fragments.tripList.TripListFragment;
 
-public class MainActivity extends AppCompatActivity implements TripListFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements
+        TripListFragment.OnListFragmentInteractionListener,
+        StuffListFragment.OnListFragmentInteractionListener,
+        LocationsListFragment.OnListFragmentInteractionListener
+{
     private Fragment fragment;
     private FragmentManager fragmentManager;
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -28,9 +36,10 @@ public class MainActivity extends AppCompatActivity implements TripListFragment.
                     fragment = TripListFragment.newInstance();
                     break;
                 case R.id.navigation_dashboard:
-                    fragment = TripListFragment.newInstance();
+                    fragment = StuffListFragment.newInstance();
                     break;
                 case R.id.navigation_notifications:
+                    fragment = LocationsListFragment.newInstance();
                     break;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -50,6 +59,16 @@ public class MainActivity extends AppCompatActivity implements TripListFragment.
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         fragment = new TripListFragment();
         transaction.add(R.id.main_container, fragment).commit();
+    }
 
+
+
+    public void onListFragmentInteraction(StuffItem item){
+        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(Location item) {
+        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
