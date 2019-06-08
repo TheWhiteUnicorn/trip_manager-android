@@ -9,4 +9,13 @@
     <string name="trips_tab_past">Past</string>
     <string name="trips_fab_action_trip_text">Trip</string>
     <string name="trips_fab_action_group_text">Trip group</string>
+    <string name="title_activity_add_location">Add location</string>
+    <string name="addLocation_description_hint">Description</string>
+    <string name="addLocation_title_hint">Title</string>
+    <string name="title_activity_add_stuff">Add stuff</string>
+    <string name="addLocation_Address_hint">Address</string>
+    <string name="title_activity_add_trip">Add Trip</string>
+    <string name="title_activity_manage_stuff">Manage stuff</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

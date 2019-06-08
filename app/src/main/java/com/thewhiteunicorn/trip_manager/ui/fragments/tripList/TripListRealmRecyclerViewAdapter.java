@@ -18,9 +18,12 @@ import io.realm.RealmRecyclerViewAdapter;
 
 public class TripListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<Travel, TripListRealmRecyclerViewAdapter.TripListViewHolder> {
 
-    public TripListRealmRecyclerViewAdapter(@Nullable OrderedRealmCollection<Travel> data) {
+    private final TripListFragment.OnListFragmentInteractionListener mListener;
+
+    public TripListRealmRecyclerViewAdapter(@Nullable OrderedRealmCollection<Travel> data, TripListFragment.OnListFragmentInteractionListener listener) {
         super(data, true);
         setHasStableIds(true);
+        mListener = listener;
     }
 
     @NonNull
@@ -38,13 +41,27 @@ public class TripListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<T
         tripListViewHolder.title.setText(travel.getTitle());
 
 
-        String datesInterval = (new StringBuilder()
-                .append(SimpleDateFormat.getDateInstance().format(travel.getDispatchDate()))
-                .append(" - ")
-                .append(SimpleDateFormat.getDateInstance().format(travel.getArriveDate()))
-                .toString()
+        String datesInterval = (
+            SimpleDateFormat.getDateInstance().format(travel.getDispatchDate()) +
+            " - " +
+            SimpleDateFormat.getDateInstance().format(travel.getArriveDate())
         );
         tripListViewHolder.dates.setText(datesInterval);
+
+
+        String locations = (
+            travel.getStartPoint().getTitle() +
+            " - " +
+            travel.getDestinationPoint().getTitle()
+        );
+        tripListViewHolder.locations.setText(locations);
+
+        tripListViewHolder.mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener)
+            }
+        });
     }
 
     @Override
@@ -53,15 +70,21 @@ public class TripListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<T
     }
 
     class TripListViewHolder extends RecyclerView.ViewHolder {
+        final View mView;
+
         TextView title;
         TextView dates;
+        TextView locations;
 
         public Travel data;
 
         TripListViewHolder(View view) {
             super(view);
+            mView = view;
+
             title = view.findViewById(R.id.tripList_item_title);
             dates = view.findViewById(R.id.tripList_item_dates);
+            locations = view.findViewById(R.id.tripList_item_locations);
         }
     }
 }

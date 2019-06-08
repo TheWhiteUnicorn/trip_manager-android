@@ -1,7 +1,9 @@
 package com.thewhiteunicorn.trip_manager.ui.fragments.locationsList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.thewhiteunicorn.trip_manager.R;
 import com.thewhiteunicorn.trip_manager.model.Location;
+import com.thewhiteunicorn.trip_manager.ui.activities.addLocationActivity.AddLocationActivity;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
@@ -64,9 +67,9 @@ public class LocationsListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_stuff_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_locations_list, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.stuffList_list);
+        RecyclerView recyclerView = view.findViewById(R.id.locationsList_list);
         Context context = recyclerView.getContext();
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
 
@@ -75,6 +78,11 @@ public class LocationsListFragment extends Fragment {
         OrderedRealmCollection<Location> realmData = mRealm.where(Location.class).findAll();
         recyclerView.setAdapter(new LocationsListRealmRecyclerViewAdapter(realmData, mListener));
 
+        FloatingActionButton fab = view.findViewById(R.id.locationsList_fab_add);
+        fab.setOnClickListener(view1 -> {
+            Intent intent = new Intent(context, AddLocationActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }

@@ -11,6 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.activities.manageStuffActivity.ManageStuff"
+            android:label="@string/title_activity_manage_stuff"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.activities.manageStuffActivity.ManageStuffActivity"
+            android:label="@string/title_activity_manage_stuff"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.addTripActivity.AddTripActivity"
+            android:label="@string/title_activity_add_trip"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.addStuffActivity.AddStuffActivity"
+            android:label="@string/title_activity_add_stuff"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activities.addLocationActivity.AddLocationActivity"
+            android:label="@string/title_activity_add_location"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -19,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

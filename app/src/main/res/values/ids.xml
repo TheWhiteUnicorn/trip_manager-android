@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="trips_fab_action1" type="id" />
-    <item name="trips_fab_action2" type="id" />
+    <item name="trips_fab_action_action_create_trip" type="id" />
+    <item name="trips_fab_action_create_trip_group" type="id" />
 </resources>

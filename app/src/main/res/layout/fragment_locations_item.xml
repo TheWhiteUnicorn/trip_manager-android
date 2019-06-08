@@ -11,6 +11,8 @@
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="Location icon"
+        android:tint="@color/colorSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_home_black_24dp" />
@@ -21,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:fontFamily="@font/roboto"
-        android:textColor="#DE000000"
+        android:textColor="@color/fontColorMain"
         android:textSize="16sp"
         app:firstBaselineToTopHeight="28dp"
         app:layout_constraintStart_toEndOf="@+id/locationsList_item_image"
@@ -32,7 +34,17 @@
         android:id="@+id/locationsList_item_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/fontColorSecondary"
         app:layout_constraintStart_toStartOf="@+id/locationsList_item_title"
         app:layout_constraintTop_toBottomOf="@+id/locationsList_item_title"
         tools:text="Description" />
+
+    <TextView
+        android:id="@+id/locationsList_item_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/fontColorSecondary"
+        app:layout_constraintStart_toStartOf="@+id/locationsList_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/locationsList_item_description"
+        tools:text="Address" />
 </android.support.constraint.ConstraintLayout>

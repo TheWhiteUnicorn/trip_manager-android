@@ -6,7 +6,15 @@ public class Location extends RealmObject {
     private String title;
     // geotag
     private String description;
+    private String address;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getTitle() {
         return title;
@@ -22,5 +30,10 @@ public class Location extends RealmObject {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

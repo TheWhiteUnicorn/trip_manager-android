@@ -37,7 +37,8 @@ public class StuffListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<
 
         stuffListHolder.data = stuffItem;
         stuffListHolder.mTitle.setText(stuffItem.getTitle());
-        stuffListHolder.mLocation.setText("My home");
+        stuffListHolder.mLocation.setText(stuffItem.getLocation().getTitle());
+        stuffListHolder.mDescription.setText(stuffItem.getDescription());
 
         stuffListHolder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,7 @@ public class StuffListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<
 
         final TextView mTitle;
         final TextView mLocation;
+        final TextView mDescription;
 
         StuffItem data;
 
@@ -70,6 +72,7 @@ public class StuffListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<
 
             mTitle = view.findViewById(R.id.stuffList_item_title);
             mLocation = view.findViewById(R.id.stuffList_item_location);
+            mDescription = view.findViewById(R.id.stuffList_item_description);
         }
     }
 }

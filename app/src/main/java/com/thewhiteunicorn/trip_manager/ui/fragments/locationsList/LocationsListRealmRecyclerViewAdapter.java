@@ -38,6 +38,7 @@ public class LocationsListRealmRecyclerViewAdapter extends RealmRecyclerViewAdap
         locationListHolder.data = location;
         locationListHolder.mTitle.setText(location.getTitle());
         locationListHolder.mDescription.setText(location.getDescription());
+        locationListHolder.mAddress.setText(location.getAddress());
 
         locationListHolder.mView.setOnClickListener(v -> {
             if (null != mListener) {
@@ -58,6 +59,7 @@ public class LocationsListRealmRecyclerViewAdapter extends RealmRecyclerViewAdap
 
         final TextView mTitle;
         final TextView mDescription;
+        final TextView mAddress;
 
         Location data;
 
@@ -67,6 +69,7 @@ public class LocationsListRealmRecyclerViewAdapter extends RealmRecyclerViewAdap
 
             mTitle = view.findViewById(R.id.locationsList_item_title);
             mDescription = view.findViewById(R.id.locationsList_item_description);
+            mAddress = view.findViewById(R.id.locationsList_item_address);
         }
     }
 }

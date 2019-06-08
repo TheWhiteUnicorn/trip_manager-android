@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements
         transaction.add(R.id.main_container, fragment).commit();
     }
 
-
-
     public void onListFragmentInteraction(StuffItem item){
         Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
     }

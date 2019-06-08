@@ -1,6 +1,7 @@
 package com.thewhiteunicorn.trip_manager.ui.fragments.tripList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,8 @@ import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 import com.thewhiteunicorn.trip_manager.model.Travel;
 import com.thewhiteunicorn.trip_manager.R;
+import com.thewhiteunicorn.trip_manager.ui.activities.addLocationActivity.AddLocationActivity;
+import com.thewhiteunicorn.trip_manager.ui.activities.addTripActivity.AddTripActivity;
 
 import io.realm.Realm;
 
@@ -102,7 +105,7 @@ public class TripListFragment extends Fragment {
     private void onCreateViewFAB (View view, Context context) {
         SpeedDialView speedDialView = view.findViewById(R.id.floatingActionButton);
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.trips_fab_action1, R.drawable.bus)
+                new SpeedDialActionItem.Builder(R.id.trips_fab_action_action_create_trip, R.drawable.bus)
                         .setFabImageTintColor(Color.WHITE)
                         .setLabel(getString(R.string.trips_fab_action_trip_text))
                         .setLabelBackgroundColor(Color.WHITE)
@@ -110,7 +113,7 @@ public class TripListFragment extends Fragment {
                         .create()
         );
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.trips_fab_action2, R.drawable.folder_multiple)
+                new SpeedDialActionItem.Builder(R.id.trips_fab_action_create_trip_group, R.drawable.folder_multiple)
                         .setFabImageTintColor(Color.WHITE)
                         .setLabel(getString(R.string.trips_fab_action_group_text))
                         .setLabelBackgroundColor(Color.WHITE)
@@ -120,8 +123,12 @@ public class TripListFragment extends Fragment {
 
         speedDialView.setOnActionSelectedListener(speedDialActionItem -> {
             switch (speedDialActionItem.getId()) {
-                case R.id.trips_fab_action1:
-                    Toast.makeText(context, "HI THERE", Toast.LENGTH_SHORT).show();
+                case R.id.trips_fab_action_action_create_trip:
+                    Intent intent = new Intent(context, AddTripActivity.class);
+                    startActivity(intent);
+                    return false; // true to keep the Speed Dial open
+                case R.id.trips_fab_action_create_trip_group:
+                    Toast.makeText(context, "Creating trip group", Toast.LENGTH_SHORT).show();
                     return false; // true to keep the Speed Dial open
                 default:
                     return false;

@@ -40,6 +40,4 @@ public class StuffItem extends RealmObject {
     public void setLocation(Location location) {
         this.location = location;
     }
-
-
 }

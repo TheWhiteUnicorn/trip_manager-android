@@ -1,7 +1,9 @@
 package com.thewhiteunicorn.trip_manager.ui.fragments.stuffList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.thewhiteunicorn.trip_manager.R;
 import com.thewhiteunicorn.trip_manager.model.StuffItem;
+import com.thewhiteunicorn.trip_manager.ui.activities.addStuffActivity.AddStuffActivity;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
@@ -54,8 +57,9 @@ public class StuffListFragment extends Fragment {
         /*StuffItem travel = mRealm.createObject(StuffItem.class);
         travel.setTitle("Phone");*/
 
-        //results.deleteAllFromRealm();
+        /*final RealmResults<StuffItem> results = mRealm.where(StuffItem.class).isNull("location").findAll();
 
+        results.deleteAllFromRealm();*/
 
         mRealm.commitTransaction();
     }
@@ -74,6 +78,11 @@ public class StuffListFragment extends Fragment {
         OrderedRealmCollection<StuffItem> realmData = mRealm.where(StuffItem.class).findAll();
         recyclerView.setAdapter(new StuffListRealmRecyclerViewAdapter(realmData, mListener));
 
+        FloatingActionButton fab = view.findViewById(R.id.stuffList_fab_add);
+        fab.setOnClickListener(view1 -> {
+            Intent intent = new Intent(context, AddStuffActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }
