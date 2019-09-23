@@ -16,6 +16,7 @@
     <string name="addLocation_Address_hint">Address</string>
     <string name="title_activity_add_trip">Add Trip</string>
     <string name="title_activity_manage_stuff">Manage stuff</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="manageStuff_tab_all_text">All</string>
+    <string name="manageStuff_tab_took_text">Taken</string>
+    <string name="manageStuff_tab_rest_text">Left</string>
 </resources>

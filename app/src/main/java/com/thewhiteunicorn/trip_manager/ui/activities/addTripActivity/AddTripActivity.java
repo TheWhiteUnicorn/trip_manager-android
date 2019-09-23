@@ -2,10 +2,8 @@ package com.thewhiteunicorn.trip_manager.ui.activities.addTripActivity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -64,7 +62,7 @@ public class AddTripActivity extends AppCompatActivity {
 
         onCreateLocationSpinners();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.manageStuff_fab_submit);
         fab.setOnClickListener(view -> {
             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy'T'HH:mm");
 
@@ -119,7 +117,7 @@ public class AddTripActivity extends AppCompatActivity {
 
             mRealm.commitTransaction();
 
-
+            finish();
         });
     }
 

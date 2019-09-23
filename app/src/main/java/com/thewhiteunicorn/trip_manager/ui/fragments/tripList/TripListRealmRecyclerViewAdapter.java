@@ -56,10 +56,9 @@ public class TripListRealmRecyclerViewAdapter extends RealmRecyclerViewAdapter<T
         );
         tripListViewHolder.locations.setText(locations);
 
-        tripListViewHolder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mListener)
+        tripListViewHolder.mView.setOnClickListener(view -> {
+            if (mListener != null) {
+                mListener.onListFragmentInteraction(tripListViewHolder.data);
             }
         });
     }

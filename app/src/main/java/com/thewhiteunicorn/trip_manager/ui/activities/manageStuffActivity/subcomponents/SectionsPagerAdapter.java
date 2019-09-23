@@ -1,4 +1,4 @@
-package com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.ui.main;
+package com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.subcomponents;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,7 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.R;
+import com.thewhiteunicorn.trip_manager.R;
+
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -16,7 +17,12 @@ import com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[] {
+            R.string.manageStuff_tab_all_text,
+            R.string.manageStuff_tab_took_text,
+            R.string.manageStuff_tab_rest_text
+    };
+
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -27,8 +33,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        // Return a ManageStuffFragment (defined as a static inner class below).
+        return ManageStuffFragment.newInstance(position + 1);
     }
 
     @Nullable
@@ -39,7 +45,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 2;
+        return 3;
     }
 }

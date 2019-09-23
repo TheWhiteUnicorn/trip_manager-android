@@ -20,6 +20,7 @@ import com.thewhiteunicorn.trip_manager.R;
 import com.thewhiteunicorn.trip_manager.ui.activities.addLocationActivity.AddLocationActivity;
 import com.thewhiteunicorn.trip_manager.ui.activities.addTripActivity.AddTripActivity;
 
+import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
 
 
@@ -95,7 +96,9 @@ public class TripListFragment extends Fragment {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        recyclerView.setAdapter(new TripListRealmRecyclerViewAdapter(mRealm.where(Travel.class).findAll()));
+
+        OrderedRealmCollection<Travel> realmData = mRealm.where(Travel.class).findAll();
+        recyclerView.setAdapter(new TripListRealmRecyclerViewAdapter(realmData, mListener));
 
         onCreateViewFAB(view, context);
 
@@ -165,7 +168,6 @@ public class TripListFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-
+        void onListFragmentInteraction(Travel travel);
     }
 }

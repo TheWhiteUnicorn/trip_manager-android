@@ -1,4 +1,4 @@
-package com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.ui.main;
+package com.thewhiteunicorn.trip_manager.ui.activities.manageStuffActivity.subcomponents;
 
 import android.arch.core.util.Function;
 import android.arch.lifecycle.LiveData;

@@ -7,12 +7,21 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class StuffSet extends RealmObject {
+    private long id;
     private boolean isTemplate;
     private String name;
     private Date creationDate;
-    private RealmList<StuffItem> stuffItem;
+    private RealmList<StuffInSet> stuffItems;
 
-    StuffSet () {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public StuffSet () {
         creationDate = Calendar.getInstance().getTime();
     }
 
@@ -40,11 +49,11 @@ public class StuffSet extends RealmObject {
         this.creationDate = creationDate;
     }
 
-    public RealmList<StuffItem> getStuffItem() {
-        return stuffItem;
+    public RealmList<StuffInSet> getStuffItems() {
+        return stuffItems;
     }
 
-    public void setStuffItem(RealmList<StuffItem> stuffItem) {
-        this.stuffItem = stuffItem;
+    public void setStuffItems(RealmList<StuffInSet> stuffItems) {
+        this.stuffItems = stuffItems;
     }
 }
